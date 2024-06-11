@@ -1,0 +1,20 @@
+﻿@model EducationYear
+<h1 class="alert alert-success text-center">Create Education Year</h1>
+
+<div class="row">
+    <form class="col-4" method="post" asp-controller="EducationYears" asp-action="AddNew">
+        @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+
+        <div>
+            <label asp-for="Name"></label>
+            <input type="text" asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-2">Add</button>
+    </form>
+</div>
+
+<a asp-controller="EducationYear" asp-action="GetHomeView">Back to Education Year Home</a>
+
+<partial name="_TSContact" />

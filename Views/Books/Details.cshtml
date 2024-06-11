@@ -1,0 +1,32 @@
+﻿@model Book
+
+<h1 class="alert alert-warning">@Model.Id Details</h1>
+
+
+
+
+<div>
+    <dl class="col-6 row">
+        <dt class="col-2">@Html.DisplayNameFor(b => b.Id)</dt>
+        <dd class="col-10">@Html.DisplayFor(b => b.Id)</dd>
+        <dt class="col-2">@Html.DisplayNameFor(b => b.EducationYear.Name)</dt>
+        <dd class="col-10">@Html.DisplayFor(b => b.EducationYear.Name)</dd>
+        <dt class="col-2">@Html.DisplayNameFor(b => b.Subject.Name)</dt>
+        <dd class="col-10">@Html.DisplayFor(b =>  b.Subject.Name)</dd>
+        <dt class="col-2">@Html.DisplayNameFor(b =>  b.Publisher.Name)</dt>
+        <dd class="col-10">@Html.DisplayFor(b => b.Publisher.Name)</dd>
+        <dt class="col-2">@Html.DisplayNameFor(b => b.Price)</dt>
+        <dd class="col-10">@Html.DisplayFor(b => b.Price)</dd>
+        <dt class="col-2">@Html.DisplayNameFor(b => b.count)</dt>
+        <dd class="col-10">@Html.DisplayFor(b => b.count)</dd>
+    </dl>
+
+</div>
+
+
+
+
+<a asp-controller="Books" asp-action="GetHomeView">Back to List</a>
+
+
+<partial name="_TSContact" />

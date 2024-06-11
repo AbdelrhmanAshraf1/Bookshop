@@ -1,0 +1,49 @@
+﻿@model Book
+<h1 class="alert alert-success text-center">Create Book</h1>
+
+<div class="row">
+    <form class="col-4" method="post" asp-controller="Books" asp-action="AddNew" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div>
+            <Label asp-for="EducationYearId"></Label>
+            <select asp-for="EducationYearId" asp-items="@(new SelectList(ViewBag.AllEducationYears, "Id", "Name"))" class="form-control">
+                <option selected> Select...</option>
+            </select>
+            <span asp-validation-for="EducationYearId" class="text-danger"></span>
+        </div>
+
+        <div>
+            <Label asp-for="PublisherId"></Label>
+            <select asp-for="PublisherId" asp-items="@(new SelectList(ViewBag.AllPublishers, "Id", "Name"))" class="form-control">
+                <option selected> Select...</option>
+            </select>
+            <span asp-validation-for="PublisherId" class="text-danger"></span>
+        </div>
+
+        <div>
+            <Label asp-for="SubjectId"></Label>
+            <select asp-for="SubjectId" asp-items="@(new SelectList(ViewBag.AllSubjects, "Id", "Name"))" class="form-control">
+                <option selected> Select...</option>
+            </select>
+            <span asp-validation-for="SubjectId" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Price"></label>
+            <input type="number" asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="count"></label>
+            <input type="number" asp-for="count" class="form-control" />
+            <span asp-validation-for="count" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-2">Add</button>
+    </form>
+</div>
+
+<a asp-controller="Books" asp-action="GetHomeView">Back to List</a>
+
+<partial name="_TSContact" />

@@ -1,0 +1,25 @@
+﻿@model Subject
+
+<h1 class="alert alert-danger">Are you sure you want to delete Subject</h1>
+
+@{
+    Subject subject = (Subject)ViewBag.CurrentDept;
+}
+
+<div>
+    <dl class="col-6 row">
+        <dt class="col-2">@Html.DisplayNameFor(d => subject.Id)</dt>
+        <dd class="col-10">@Html.DisplayFor(d => subject.Id)</dd>
+        <dt class="col-2">@Html.DisplayNameFor(d => subject.Name)</dt>
+        <dd class="col-10">@Html.DisplayFor(d => subject.Name)</dd>
+    </dl>
+</div>
+
+<form method="post" asp-controller="Subjects" asp-action="DeleteCurrent">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+
+<a asp-controller="Subjects" asp-action="GetHomeView">Back to List</a>
+
+<partial name="_TSContact" />

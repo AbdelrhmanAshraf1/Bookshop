@@ -1,0 +1,20 @@
+﻿@model EducationYear
+
+<h1 class="alert alert-warning">@Model.Name Details</h1>
+
+
+@{
+    EducationYear educationYear = (EducationYear)ViewBag.CurrentDept;
+}
+<div>
+    <dl class="col-6 row">
+        <dt class="col-2">@Html.DisplayNameFor(d => educationYear.Id)</dt>
+        <dd class="col-10">@Html.DisplayFor(d => educationYear.Id)</dd>
+        <dt class="col-2">@Html.DisplayNameFor(d => educationYear.Name)</dt>
+        <dd class="col-10">@Html.DisplayFor(d => educationYear.Name)</dd>
+    </dl>
+</div>
+
+<a asp-controller="EducationYears" asp-action="GetHomeView">Back to List</a>
+
+<partial name="_TSContact" />

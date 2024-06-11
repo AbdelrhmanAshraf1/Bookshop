@@ -1,0 +1,27 @@
+﻿@model Publisher
+
+<h1 class="alert alert-danger">Are you sure you want to delete Publisher</h1>
+
+@{
+    Publisher publisher = (Publisher)ViewBag.CurrentDept;
+}
+
+<div>
+    <dl class="col-6 row">
+        <dt class="col-2">@Html.DisplayNameFor(d => publisher.Id)</dt>
+        <dd class="col-10">@Html.DisplayFor(d => publisher.Id)</dd>
+        <dt class="col-2">@Html.DisplayNameFor(d => publisher.Name)</dt>
+        <dd class="col-10">@Html.DisplayFor(d => publisher.Name)</dd>
+    </dl>
+    <img src="@Model.ImagePath" class="card col-6" style="object-fit:contain" />
+
+</div>
+
+<form method="post" asp-controller="Publishers" asp-action="DeleteCurrent">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+
+<a asp-controller="Publishers" asp-action="GetHomeView">Back to List</a>
+
+<partial name="_TSContact" />

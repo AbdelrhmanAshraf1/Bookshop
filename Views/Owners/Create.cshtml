@@ -1,0 +1,47 @@
+﻿@model Owner
+<h1 class="alert alert-success text-center">Create Owner</h1>
+
+<div class="row">
+    <form class="col-4" method="post" asp-controller="Owners" asp-action="AddNew" enctype="multipart/form-data">
+        @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+
+        <div>
+            <label asp-for="Name"></label>
+            <input type="text" asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="PhoneNumber"></label>
+            <input type="number" asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="ImagePath"></label>
+            <input type="file" name="imageFormFile" id="BookImage" accept=".png , .jpg" class="form-control" onchange="SetImgSrc()" />
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-2">Add</button>
+    </form>
+
+    <img src="" id="OwnerImage" class="col-4 card" style="object-fit:contain" />
+
+</div>
+
+@section Scripts{
+    <script>
+        function SetImgSrc() {
+            // var imageFormFileFirstFile = document.getElementById("imageFormFile").files[0];
+            // var imageFormFileUrl = window.URL.createObjectURL(imageFormFileFirstFile);
+            // document.getElementById("deptImage").src = imageFormFileUrl;
+            document.getElementById("BookImage").src = window.URL.createObjectURL(document.getElementById("imageFormFile").files[0]);
+        }
+    </script>
+}
+
+
+<a asp-controller="Owner" asp-action="GetHomeView">Back to Owner Home</a>
+
+
+<partial name="_TSContact" />

@@ -1,0 +1,29 @@
+﻿@model Owner
+
+<h1 class="alert alert-danger">Are you sure you want to delete Owner</h1>
+
+@{
+    Owner owner = (Owner)ViewBag.CurrentDept;
+}
+
+<div>
+    <dl class="col-6 row">
+        <dt class="col-2">@Html.DisplayNameFor(d => owner.Id)</dt>
+        <dd class="col-10">@Html.DisplayFor(d => owner.Id)</dd>
+        <dt class="col-2">@Html.DisplayNameFor(d => owner.Name)</dt>
+        <dd class="col-10">@Html.DisplayFor(d => owner.Name)</dd>
+        <dt class="col-2">@Html.DisplayNameFor(d => owner.PhoneNumber)</dt>
+        <dd class="col-10">@Html.DisplayFor(d => owner.PhoneNumber)</dd>
+    </dl>
+    <img src="@Model.ImagePath" class="card col-6" style="object-fit:contain" />
+
+</div>
+
+<form method="post" asp-controller="Owners" asp-action="DeleteCurrent">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+
+<a asp-controller="Owners" asp-action="GetHomeView">Back to List</a>
+
+<partial name="_TSContact" />
